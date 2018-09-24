@@ -54,8 +54,7 @@
                     <tr>
                         <td>'.$row->project_name.'</td>
                         <td>'.$row->score.'</td>
-                    </tr>'
-                    ;
+                    </tr>';
                 }
 
                 mysqli_close($conn);

@@ -33,7 +33,37 @@
         </div>
     </nav>
 
-    <center><h1>List Page</h1></center>
+    <br><br>
+
+    <div class="table-responsive text-center">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Activities</th>
+                    <th>Project Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                require('conn.php');
+
+                $query = mysqli_query($conn, 'SELECT * FROM list');
+                while($row = mysqli_fetch_object($query)) {
+                    echo '
+                    <tr>
+                        <td>'.$row->activity.'</td>
+                        <td>'.$row->project_name.'</td>
+                        <td>'.$row->score.'</td>
+                    </tr>';
+                }
+
+                mysqli_close($conn);
+                ?>
+            </tbody>
+        </table>
+    </div>
 
     <!-- Latest compiled JavaScript and jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
