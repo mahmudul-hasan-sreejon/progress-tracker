@@ -17,13 +17,13 @@
             </div>
 
             <ul class="navbar-nav">
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="index.php">Chart</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="project_report_page.php">Poject Report</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="#">Detail Report</a>
                 </li>
                 <li class="nav-item">
