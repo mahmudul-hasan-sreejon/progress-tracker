@@ -136,28 +136,89 @@ $(document).ready(function() {
         });
     }
 
-    // On event for first name column
-    $(document).on('blur', '.first_name', function() {
-        // id1 data attribute of the current data
+    // On event actions for data grids
+    $(document).on('blur', '.activity', function() {
         var id = $(this).data("id1");
-        var first_name = $(this).text();
+        var activity = $(this).text();
 
-        edit_data(id, first_name, "first_name");
+        edit_data(id, activity, "activity");
     });
-
-    // On event for last name column
-    $(document).on('blur', '.last_name', function() {
-        // id2 data attribute of the current data
+    $(document).on('blur', '.project_name', function() {
         var id = $(this).data("id2");
-        var last_name = $(this).text();
+        var project_name = $(this).text();
 
-        edit_data(id, last_name, "last_name");
+        edit_data(id, project_name, "project_name");
+    });
+    $(document).on('blur', '.projected_start_date', function() {
+        var id = $(this).data("id3");
+        var projected_start_date = $(this).text();
+
+        edit_data(id, projected_start_date, "projected_start_date");
+    });
+    $(document).on('blur', '.projected_end_date', function() {
+        var id = $(this).data("id4");
+        var projected_end_date = $(this).text();
+
+        edit_data(id, projected_end_date, "projected_end_date");
+    });
+    $(document).on('blur', '.actual_start_date', function() {
+        var id = $(this).data("id5");
+        var actual_start_date = $(this).text();
+
+        edit_data(id, actual_start_date, "actual_start_date");
+    });
+    $(document).on('blur', '.actual_end_date', function() {
+        var id = $(this).data("id6");
+        var actual_end_date = $(this).text();
+
+        edit_data(id, actual_end_date, "actual_end_date");
+    });
+    $(document).on('blur', '.projected_days', function() {
+        var id = $(this).data("id7");
+        var projected_days = $(this).text();
+
+        edit_data(id, projected_days, "projected_days");
+    });
+    $(document).on('blur', '.actual_days', function() {
+        var id = $(this).data("id8");
+        var actual_days = $(this).text();
+
+        edit_data(id, actual_days, "actual_days");
+    });
+    $(document).on('blur', '.accuracy', function() {
+        var id = $(this).data("id9");
+        var accuracy = $(this).text();
+
+        edit_data(id, accuracy, "accuracy");
+    });
+    $(document).on('blur', '.score', function() {
+        var id = $(this).data("id10");
+        var score = $(this).text();
+
+        edit_data(id, score, "score");
+    });
+    $(document).on('blur', '.stat', function() {
+        var id = $(this).data("id11");
+        var stat = $(this).text();
+
+        edit_data(id, stat, "stat");
     });
 
-    // On event for delete Button
+    // SAMPLE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    // On event for last name column
+    // $(document).on('blur', '.last_name', function() {
+    //     // id2 data attribute of the current data
+    //     var id = $(this).data("id2");
+    //     var last_name = $(this).text();
+
+    //     edit_data(id, last_name, "last_name");
+    // });
+
+
+
+    // On event action for delete Button
     $(document).on('click', '.btn_delete', function() {
-        // id3 data attribute of the current data
-        var id = $(this).data("id3");
+        var id = $(this).data("id12");
 
         if(confirm("Are you sure you want to delete this?")) {
             $.ajax({
