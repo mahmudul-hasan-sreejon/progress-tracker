@@ -1,12 +1,15 @@
 <?php
 
-$connect = mysqli_connect("localhost", "root", "1", "testing");
+require('../conn.php');
 
 $id = $_POST["id"];
 
-$query = "DELETE FROM tbl_sample WHERE id = '".$id."'";
-if(mysqli_query($connect, $query)) {
+$query = "DELETE FROM detail_report WHERE detail_report_id = '$id'";
+
+if(mysqli_query($conn, $query)) {
 	echo 'Data Deleted';
 }
+
+mysqli_close($conn);
 
 ?>

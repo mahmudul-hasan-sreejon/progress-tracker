@@ -204,18 +204,6 @@ $(document).ready(function() {
         edit_data(id, stat, "stat");
     });
 
-    // SAMPLE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    // On event for last name column
-    // $(document).on('blur', '.last_name', function() {
-    //     // id2 data attribute of the current data
-    //     var id = $(this).data("id2");
-    //     var last_name = $(this).text();
-
-    //     edit_data(id, last_name, "last_name");
-    // });
-
-
-
     // On event action for delete Button
     $(document).on('click', '.btn_delete', function() {
         var id = $(this).data("id12");
