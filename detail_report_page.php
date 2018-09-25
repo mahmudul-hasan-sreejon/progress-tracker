@@ -41,8 +41,6 @@
         <span id="result"></span>
     </div>
 
-
-
     <!-- Latest compiled JavaScript and jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -65,26 +63,50 @@ $(document).ready(function() {
 
     fetch_data();
 
-    // Field Validation after button click
     $(document).on('click', '#btn_add', function() {
-        var first_name = $('#first_name').text();
-        var last_name = $('#last_name').text();
-        if(first_name == '') {  
-            alert("Enter First Name");
+        var activity = $('#activity').text();
+        var project_name = $('#project_name').text();
+        var projected_start_date = $('#projected_start_date').text();
+        var projected_end_date = $('#projected_end_date').text();
+        var actual_start_date = $('#actual_start_date').text();
+        var actual_end_date = $('#actual_end_date').text();
+        var projected_days = $('#projected_days').text();
+        var actual_days = $('#actual_days').text();
+        var accuracy = $('#accuracy').text();
+        var score = $('#score').text();
+        var stat = $('#stat').text();
+        
+        // Field Validation after button click
+        if(activity == '') {  
+            alert("Enter a Activity");
             return false;
         }
-        if(last_name == '') {  
-            alert("Enter Last Name");
+        if(project_name == '') {  
+            alert("Enter Project Name");
             return false;
         }
+        if(score == '') {  
+            alert("Enter Activity Score");
+            return false;
+        }
+
 
         // Insert data if all ok
         $.ajax({
             url: "data_grid/insert.php",
             method: "POST",
             data: {
-                first_name: first_name,
-                last_name: last_name
+                activity: activity,
+                project_name: project_name,
+                projected_start_date: projected_start_date,
+                projected_end_date: projected_end_date,
+                actual_start_date: actual_start_date,
+                actual_end_date: actual_end_date,
+                projected_days: projected_days,
+                actual_days: actual_days,
+                accuracy: accuracy,
+                score: score,
+                stat: stat
             },
             dataType: "text",
             success: function(data) {

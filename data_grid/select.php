@@ -60,7 +60,7 @@ if($rows > 0) { // If data found
 
                 <td class="score" data-id10="'.$row["detail_report_id"].'" contenteditable>'.$row["score"].'</td>
 
-                <td class="status" data-id11="'.$row["detail_report_id"].'" contenteditable>'.$row["status"].'</td>
+                <td class="stat" data-id11="'.$row["detail_report_id"].'" contenteditable>'.$row["stat"].'</td>
                 
                 <td><button type="button" name="delete_btn" data-id12="'.$row["detail_report_id"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>
             </tr>';
@@ -84,7 +84,7 @@ if($rows > 0) { // If data found
             
             <td id="accuracy" contenteditable></td>
             <td id="score" contenteditable></td>
-            <td id="status" contenteditable></td>
+            <td id="stat" contenteditable></td>
 
             <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>
         </tr>
@@ -108,7 +108,7 @@ else { // If not found
                 
                 <td id="accuracy" contenteditable></td>
                 <td id="score" contenteditable></td>
-                <td id="status" contenteditable></td>
+                <td id="stat" contenteditable></td>
 
                 <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>
             </tr>';
@@ -119,5 +119,7 @@ $output .= '</tbody>
     </div>';
 
 echo $output;
+
+mysqli_close($conn);
 
 ?>
