@@ -31,12 +31,6 @@ $output .= '
 // Checking for data from the database
 $rows = mysqli_num_rows($result);
 if($rows > 0) { // If data found
-    // if($rows > 10) {
-    //     $delete_records = $rows - 10;
-    //     $delete_sql = "DELETE FROM tbl_sample LIMIT $delete_records";
-    //     mysqli_query($connect, $delete_sql);
-    // }
-    
     // Main Table Body
     $output .= '<tbody>';
     while($row = mysqli_fetch_array($result)) {
@@ -53,14 +47,14 @@ if($rows > 0) { // If data found
                 <td class="actual_start_date" data-id5="'.$row["detail_report_id"].'" contenteditable>'.$row["actual_start_date"].'</td>
                 <td class="actual_end_date" data-id6="'.$row["detail_report_id"].'" contenteditable>'.$row["actual_end_date"].'</td>
 
-                <td class="projected_days" data-id7="'.$row["detail_report_id"].'" contenteditable>'.$row["projected_days"].'</td>
-                <td class="actual_days" data-id8="'.$row["detail_report_id"].'" contenteditable>'.$row["actual_days"].'</td>
+                <td class="projected_days" data-id7="'.$row["detail_report_id"].'" contenteditable=false>'.$row["projected_days"].'</td>
+                <td class="actual_days" data-id8="'.$row["detail_report_id"].'" contenteditable=false>'.$row["actual_days"].'</td>
                 
-                <td class="accuracy" data-id9="'.$row["detail_report_id"].'" contenteditable>'.$row["accuracy"].'</td>
+                <td class="accuracy" data-id9="'.$row["detail_report_id"].'" contenteditable=false>'.$row["accuracy"].'</td>
 
                 <td class="score" data-id10="'.$row["detail_report_id"].'" contenteditable>'.$row["score"].'</td>
 
-                <td class="stat" data-id11="'.$row["detail_report_id"].'" contenteditable>'.$row["stat"].'</td>
+                <td class="stat" data-id11="'.$row["detail_report_id"].'" contenteditable=false>'.$row["stat"].'</td>
                 
                 <td><button type="button" name="delete_btn" data-id12="'.$row["detail_report_id"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>
             </tr>';
@@ -79,12 +73,12 @@ if($rows > 0) { // If data found
             <td id="actual_start_date" contenteditable></td>
             <td id="actual_end_date" contenteditable></td>
 
-            <td id="projected_days" contenteditable></td>
-            <td id="actual_days" contenteditable></td>
+            <td id="projected_days" contenteditable=false></td>
+            <td id="actual_days" contenteditable=false></td>
             
-            <td id="accuracy" contenteditable></td>
+            <td id="accuracy" contenteditable=false></td>
             <td id="score" contenteditable></td>
-            <td id="stat" contenteditable></td>
+            <td id="stat" contenteditable=false></td>
 
             <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>
         </tr>
@@ -103,12 +97,12 @@ else { // If not found
                 <td id="actual_start_date" contenteditable></td>
                 <td id="actual_end_date" contenteditable></td>
     
-                <td id="projected_days" contenteditable></td>
-                <td id="actual_days" contenteditable></td>
+                <td id="projected_days" contenteditable=false></td>
+                <td id="actual_days" contenteditable=false></td>
                 
-                <td id="accuracy" contenteditable></td>
+                <td id="accuracy" contenteditable=false></td>
                 <td id="score" contenteditable></td>
-                <td id="stat" contenteditable></td>
+                <td id="stat" contenteditable=false></td>
 
                 <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>
             </tr>';
