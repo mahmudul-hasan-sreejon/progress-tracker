@@ -77,18 +77,35 @@ $(document).ready(function() {
         var stat = $('#stat').text();
         
         // Field Validation after button click
-        if(activity == '') {  
+        if(activity == '') {
             alert("Enter a Activity");
             return false;
         }
-        if(project_name == '') {  
+        if(project_name == '') {
             alert("Enter Project Name");
             return false;
         }
-        if(score == '') {  
+        if(score == '') {
             alert("Enter Activity Score");
             return false;
         }
+
+
+        // DATE VALIDATION Format( yyyy-mm-dd ) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        
+        if( == ) {
+            // MM/dd/yyyy.
+            var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+
+            // MM/dd/yyyy.
+
+            if(!(date_regex.test(testDate))) {
+                alert("Enter Date in yyyy-mm-dd format");
+                return false;
+            }
+        }
+
+        // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 
         // Insert data if all ok
@@ -132,6 +149,8 @@ $(document).ready(function() {
             success: function(data) {
                 // alert(data);
 				$('#result').html("<div class='alert alert-success'>"+data+"</div>");
+
+                fetch_data();
             }
         });
     }
