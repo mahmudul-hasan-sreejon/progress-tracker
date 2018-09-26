@@ -35,36 +35,38 @@
 
     <br><br>
 
-    <div class="table-responsive text-center">
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Activities</th>
-                    <th>Project Name</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-                require('conn.php');
-
-                $query = "SELECT project.project_name, activity.activity_name, activity.score FROM project INNER JOIN activity ON project.project_id = activity.project_id ORDER BY project.project_name ASC";
-                $result = mysqli_query($conn, $query);
-
-                while($row = mysqli_fetch_array($result)) {
-                    echo '
+    <div class="container-fluid">
+        <div class="table-responsive-sm text-center">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
                     <tr>
-                        <td>'.$row["activity_name"].'</td>
-                        <td>'.$row["project_name"].'</td>
-                        <td>'.$row["score"].'</td>
-                    </tr>';
-                }
+                        <th>Activities</th>
+                        <th>Project Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
 
-                mysqli_close($conn);
-                ?>
-            </tbody>
-        </table>
+                <tbody>
+                    <?php
+                    require('conn.php');
+
+                    $query = "SELECT project.project_name, activity.activity_name, activity.score FROM project INNER JOIN activity ON project.project_id = activity.project_id ORDER BY project.project_name ASC";
+                    $result = mysqli_query($conn, $query);
+
+                    while($row = mysqli_fetch_array($result)) {
+                        echo '
+                        <tr>
+                            <td>'.$row["activity_name"].'</td>
+                            <td>'.$row["project_name"].'</td>
+                            <td>'.$row["score"].'</td>
+                        </tr>';
+                    }
+
+                    mysqli_close($conn);
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Latest compiled JavaScript and jQuery library -->

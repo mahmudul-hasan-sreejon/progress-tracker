@@ -35,10 +35,12 @@
 
     <br><br>
 
-    <div class="table-responsive text-center">
-        <div id="live_data"></div>
-        
-        <span id="result"></span>
+    <div class="container-fluid">
+        <div class="table-responsive-sm text-center">
+            <div id="live_data"></div>
+            
+            <span id="result"></span>
+        </div>
     </div>
 
     <!-- Latest compiled JavaScript and jQuery library -->
@@ -137,7 +139,9 @@ $(document).ready(function() {
             dataType: "text",
             success: function(data) {
                 // alert(data);
-                $('#result').html("<div class='alert alert-success'>"+data+"</div>");
+                // $('#result').html("<div class='alert alert-success'><strong>"+data+"</strong></div>");
+                
+                $('#result').html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>"+data+"</strong></div>");
 
                 fetch_data();
             }
@@ -157,7 +161,9 @@ $(document).ready(function() {
             dataType: "text",
             success: function(data) {
                 // alert(data);
-				$('#result').html("<div class='alert alert-success'>"+data+"</div>");
+				// $('#result').html("<div class='alert alert-success'>"+data+"</div>");
+
+                $('#result').html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>"+data+"</strong></div>");
 
                 fetch_data();
             }
@@ -277,7 +283,9 @@ $(document).ready(function() {
                 dataType: "text",
                 success: function(data) {
                     // alert(data);
-                    $('#result').html("<div class='alert alert-success'>"+data+"</div>");
+                    // $('#result').html("<div class='alert alert-success'>"+data+"</div>");
+
+                    $('#result').html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>"+data+"</strong></div>");
                     
                     fetch_data();
                 }

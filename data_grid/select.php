@@ -8,9 +8,9 @@ $result = mysqli_query($conn, $query);
 // Main Table Head
 $output = '';
 $output .= '
-    <div class="table-responsive text-center">
+    <div class="table-responsive-sm text-center">
         <table class="table table-bordered table-striped table-hover">
-            <thead>
+            <thead class="thead-dark">
                 <tr>
                     <th>SL</th>
                     <th>Activities</th>

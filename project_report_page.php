@@ -35,64 +35,66 @@
 
     <br><br>
 
-    <div class="table-responsive text-center">
-        <table class="table table-bordered table-striped table-hover">
-            <thead>
-                <tr>
-                    <th>Projects</th>
-                    <th>Total Score</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-                require('conn.php');
-
-                $query = "SELECT * FROM project";
-                $result = mysqli_query($conn, $query);
-
-                while($row = mysqli_fetch_array($result)) {
-                    $project_id = $row["project_id"];
-
-                    echo '
+    <div class="container-fluid">
+        <div class="table-responsive-sm text-center">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
                     <tr>
-                        <td>'.$row["project_name"].'</td>';
-                    
-                    // Calculating the sum of all the score of same project
-                    $query2 = "SELECT SUM(score) FROM activity WHERE project_id='$project_id'";
-                    $result2 = mysqli_query($conn, $query2);
-                    $row2 = mysqli_fetch_array($result2);
-                    $total_score = $row2["SUM(score)"];
+                        <th>Projects</th>
+                        <th>Total Score</th>
+                    </tr>
+                </thead>
 
-                    echo '    
-                        <td>'.$total_score.'</td>
-                    </tr>';
-                }
+                <tbody>
+                    <?php
+                    require('conn.php');
 
-                mysqli_close($conn);
-                ?>
+                    $query = "SELECT * FROM project";
+                    $result = mysqli_query($conn, $query);
 
-                <tr>
-                    <td><b>Grand Total</b></td>
-                    <td>
-                        <?php
-                        require('conn.php');
+                    while($row = mysqli_fetch_array($result)) {
+                        $project_id = $row["project_id"];
 
-                        $query = "SELECT score FROM activity";
-                        $result = mysqli_query($conn, $query);
+                        echo '
+                        <tr>
+                            <td>'.$row["project_name"].'</td>';
+                        
+                        // Calculating the sum of all the score of same project
+                        $query2 = "SELECT SUM(score) FROM activity WHERE project_id='$project_id'";
+                        $result2 = mysqli_query($conn, $query2);
+                        $row2 = mysqli_fetch_array($result2);
+                        $total_score = $row2["SUM(score)"];
 
-                        $total_score = 0;
-                        while($row = mysqli_fetch_array($result)) {
-                            $total_score += $row["score"];
-                        }
-                        echo '<b>'.$total_score.'</b>';
+                        echo '    
+                            <td>'.$total_score.'</td>
+                        </tr>';
+                    }
 
-                        mysqli_close($conn);
-                        ?>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    mysqli_close($conn);
+                    ?>
+
+                    <tr>
+                        <td><b>Grand Total</b></td>
+                        <td>
+                            <?php
+                            require('conn.php');
+
+                            $query = "SELECT score FROM activity";
+                            $result = mysqli_query($conn, $query);
+
+                            $total_score = 0;
+                            while($row = mysqli_fetch_array($result)) {
+                                $total_score += $row["score"];
+                            }
+                            echo '<b>'.$total_score.'</b>';
+
+                            mysqli_close($conn);
+                            ?>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Latest compiled JavaScript and jQuery library -->
