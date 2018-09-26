@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2018 at 07:27 AM
+-- Generation Time: Sep 26, 2018 at 10:48 AM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -40,15 +40,19 @@ CREATE TABLE `detail_report` (
   `actual_days` int(255) NOT NULL,
   `accuracy` char(50) NOT NULL,
   `score` int(255) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `stat` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `detail_report`
 --
 
-INSERT INTO `detail_report` (`detail_report_id`, `activity`, `project_name`, `projected_start_date`, `projected_end_date`, `actual_start_date`, `actual_end_date`, `projected_days`, `actual_days`, `accuracy`, `score`, `status`) VALUES
-(1, 'no activity', 'test project', '2018-09-24', '2018-09-29', '2018-09-26', '2018-09-28', 6, 3, 'Ontime', 100, 'Y');
+INSERT INTO `detail_report` (`detail_report_id`, `activity`, `project_name`, `projected_start_date`, `projected_end_date`, `actual_start_date`, `actual_end_date`, `projected_days`, `actual_days`, `accuracy`, `score`, `stat`) VALUES
+(2, 'SMS Module', 'CMS', '2018-10-31', '2018-10-31', '2019-12-31', '2020-01-04', 1, 5, 'Delayed', 60, 'Y'),
+(7, 'SOAP', 'TSMS', '2018-09-06', '2018-09-08', '2018-09-06', '2018-09-09', 3, 4, 'Delayed', 50, 'Y'),
+(10, 'asd', 'asd', '2018-09-01', '2018-09-05', '2018-09-02', '2018-09-04', 5, 3, 'Ontime', 12, 'Y'),
+(11, 'qwe', 'qwe', '2018-03-31', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, 'Pending', 1, 'N'),
+(12, 'asd', 'asd', '2018-03-30', '2018-04-05', '2018-03-31', '2018-04-05', 7, 6, 'Ontime', 100, 'Y');
 
 -- --------------------------------------------------------
 
@@ -126,7 +130,7 @@ ALTER TABLE `project_report`
 -- AUTO_INCREMENT for table `detail_report`
 --
 ALTER TABLE `detail_report`
-  MODIFY `detail_report_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `detail_report_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `list`
