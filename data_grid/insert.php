@@ -2,7 +2,7 @@
 
 require('../conn.php');
 
-$activity = $_POST["activity"];
+$activity_name = $_POST["activity_name"];
 $project_name = $_POST["project_name"];
 $projected_start_date = $_POST["projected_start_date"];
 $projected_end_date = $_POST["projected_end_date"];
@@ -59,9 +59,24 @@ else {
     $stat = "Y";
 }
 
+// To find existing project
+$query = "SELECT project_id FROM project WHERE project_name = '$project_name'";
+$result = mysqli_query($conn, $query);
 
-$query = "INSERT INTO detail_report(activity, project_name, projected_start_date, projected_end_date, actual_start_date, actual_end_date, projected_days, actual_days, accuracy, score, stat)
-VALUES('".$activity."', '".$project_name."', '".$projected_start_date."', '".$projected_end_date."', '".$actual_start_date."', '".$actual_end_date."', '".$projected_days."', '".$actual_days."', '".$accuracy."', '".$score."', '".$stat."')";
+$rows = mysqli_num_rows($result);
+if($rows > 0) {
+    $row = mysqli_fetch_array($result);
+    $last_insert_id = $row["project_id"];
+}
+else {
+    $query = "INSERT INTO project VALUES (NULL, '$project_name')";
+    mysqli_query($conn, $query);
+
+    $last_insert_id = mysqli_insert_id($conn);
+}
+
+// Inserting data in activity table
+$query = "INSERT INTO activity VALUES (NULL, '$activity_name', '$projected_start_date', '$projected_end_date', '$actual_start_date', '$actual_end_date', '$projected_days', '$actual_days', '$accuracy', '$score', '$stat', '$last_insert_id')";
 
 if(mysqli_query($conn, $query)) {
     echo 'Data Inserted';

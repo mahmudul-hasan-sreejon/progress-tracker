@@ -48,12 +48,24 @@
                 <?php
                 require('conn.php');
 
-                $query = mysqli_query($conn, 'SELECT * FROM project_report');
-                while($row = mysqli_fetch_object($query)) {
+                $query = "SELECT * FROM project";
+                $result = mysqli_query($conn, $query);
+
+                while($row = mysqli_fetch_array($result)) {
+                    $project_id = $row["project_id"];
+
                     echo '
                     <tr>
-                        <td>'.$row->project_name.'</td>
-                        <td>'.$row->score.'</td>
+                        <td>'.$row["project_name"].'</td>';
+                    
+                    // Calculating the sum of all the score of same project
+                    $query2 = "SELECT SUM(score) FROM activity WHERE project_id='$project_id'";
+                    $result2 = mysqli_query($conn, $query2);
+                    $row2 = mysqli_fetch_array($result2);
+                    $total_score = $row2["SUM(score)"];
+
+                    echo '    
+                        <td>'.$total_score.'</td>
                     </tr>';
                 }
 
@@ -66,10 +78,12 @@
                         <?php
                         require('conn.php');
 
-                        $query = mysqli_query($conn, 'SELECT * FROM project_report');
+                        $query = "SELECT score FROM activity";
+                        $result = mysqli_query($conn, $query);
+
                         $total_score = 0;
-                        while($row = mysqli_fetch_object($query)) {
-                            $total_score += $row->score;
+                        while($row = mysqli_fetch_array($result)) {
+                            $total_score += $row["score"];
                         }
                         echo '<b>'.$total_score.'</b>';
 

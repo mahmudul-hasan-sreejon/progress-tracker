@@ -4,7 +4,7 @@ require('../conn.php');
 
 $id = $_POST["id"];
 
-$query = "DELETE FROM detail_report WHERE detail_report_id = '$id'";
+$query = "DELETE FROM activity WHERE activity_id = '$id'";
 
 if(mysqli_query($conn, $query)) {
 	echo 'Data Deleted';

@@ -49,13 +49,15 @@
                 <?php
                 require('conn.php');
 
-                $query = mysqli_query($conn, 'SELECT * FROM list');
-                while($row = mysqli_fetch_object($query)) {
+                $query = "SELECT project.project_name, activity.activity_name, activity.score FROM project INNER JOIN activity ON project.project_id = activity.project_id ORDER BY project.project_name ASC";
+                $result = mysqli_query($conn, $query);
+
+                while($row = mysqli_fetch_array($result)) {
                     echo '
                     <tr>
-                        <td>'.$row->activity.'</td>
-                        <td>'.$row->project_name.'</td>
-                        <td>'.$row->score.'</td>
+                        <td>'.$row["activity_name"].'</td>
+                        <td>'.$row["project_name"].'</td>
+                        <td>'.$row["score"].'</td>
                     </tr>';
                 }
 

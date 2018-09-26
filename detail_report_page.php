@@ -64,7 +64,7 @@ $(document).ready(function() {
     fetch_data();
 
     $(document).on('click', '#btn_add', function() {
-        var activity = $('#activity').text();
+        var activity_name = $('#activity_name').text();
         var project_name = $('#project_name').text();
         var projected_start_date = $('#projected_start_date').text();
         var projected_end_date = $('#projected_end_date').text();
@@ -77,7 +77,7 @@ $(document).ready(function() {
         var stat = $('#stat').text();
         
         // Field Validation after button click
-        if(activity == '') {
+        if(activity_name == '') {
             alert("Enter a Activity");
             return false;
         }
@@ -122,7 +122,7 @@ $(document).ready(function() {
             url: "data_grid/insert.php",
             method: "POST",
             data: {
-                activity: activity,
+                activity_name: activity_name,
                 project_name: project_name,
                 projected_start_date: projected_start_date,
                 projected_end_date: projected_end_date,
@@ -165,12 +165,13 @@ $(document).ready(function() {
     }
 
     // On event actions for data grids
-    $(document).on('blur', '.activity', function() {
+    $(document).on('blur', '.activity_name', function() {
         var id = $(this).data("id1");
-        var activity = $(this).text();
+        var activity_name = $(this).text();
 
-        edit_data(id, activity, "activity");
+        edit_data(id, activity_name, "activity_name");
     });
+    
     $(document).on('blur', '.project_name', function() {
         var id = $(this).data("id2");
         var project_name = $(this).text();
