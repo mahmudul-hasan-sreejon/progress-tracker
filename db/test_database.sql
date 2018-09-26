@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2018 at 10:48 AM
+-- Generation Time: Sep 26, 2018 at 10:33 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -25,13 +25,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_report`
+-- Table structure for table `activity`
 --
 
-CREATE TABLE `detail_report` (
-  `detail_report_id` int(255) NOT NULL,
-  `activity` varchar(100) NOT NULL,
-  `project_name` varchar(100) NOT NULL,
+CREATE TABLE `activity` (
+  `activity_id` int(255) NOT NULL,
+  `activity_name` varchar(100) NOT NULL,
   `projected_start_date` date NOT NULL,
   `projected_end_date` date NOT NULL,
   `actual_start_date` date NOT NULL,
@@ -40,109 +39,80 @@ CREATE TABLE `detail_report` (
   `actual_days` int(255) NOT NULL,
   `accuracy` char(50) NOT NULL,
   `score` int(255) NOT NULL,
-  `stat` varchar(10) NOT NULL
+  `stat` varchar(10) NOT NULL,
+  `project_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `detail_report`
+-- Dumping data for table `activity`
 --
 
-INSERT INTO `detail_report` (`detail_report_id`, `activity`, `project_name`, `projected_start_date`, `projected_end_date`, `actual_start_date`, `actual_end_date`, `projected_days`, `actual_days`, `accuracy`, `score`, `stat`) VALUES
-(2, 'SMS Module', 'CMS', '2018-10-31', '2018-10-31', '2019-12-31', '2020-01-04', 1, 5, 'Delayed', 60, 'Y'),
-(7, 'SOAP', 'TSMS', '2018-09-06', '2018-09-08', '2018-09-06', '2018-09-09', 3, 4, 'Delayed', 50, 'Y'),
-(10, 'asd', 'asd', '2018-09-01', '2018-09-05', '2018-09-02', '2018-09-04', 5, 3, 'Ontime', 12, 'Y'),
-(11, 'qwe', 'qwe', '2018-03-31', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, 'Pending', 1, 'N'),
-(12, 'asd', 'asd', '2018-03-30', '2018-04-05', '2018-03-31', '2018-04-05', 7, 6, 'Ontime', 100, 'Y');
+INSERT INTO `activity` (`activity_id`, `activity_name`, `projected_start_date`, `projected_end_date`, `actual_start_date`, `actual_end_date`, `projected_days`, `actual_days`, `accuracy`, `score`, `stat`, `project_id`) VALUES
+(27, '2', '2018-02-28', '2018-03-03', '0000-00-00', '0000-00-00', 4, 0, 'Pending', 2, 'N', 9),
+(28, '4', '2018-01-01', '2018-01-05', '2018-01-02', '2018-01-05', 5, 4, 'Ontime', 5, 'Y', 10),
+(29, '3', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, 'Pending', 5, 'N', 10);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `list`
+-- Table structure for table `project`
 --
 
-CREATE TABLE `list` (
-  `list_id` int(255) NOT NULL,
-  `activity` varchar(100) NOT NULL,
-  `project_name` varchar(100) NOT NULL,
-  `score` int(255) NOT NULL
+CREATE TABLE `project` (
+  `project_id` int(255) NOT NULL,
+  `project_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `list`
+-- Dumping data for table `project`
 --
 
-INSERT INTO `list` (`list_id`, `activity`, `project_name`, `score`) VALUES
-(1, 'SMS module', 'CMS', 70),
-(2, 'Customer Profile', 'CMS', 20),
-(3, 'SLA', 'CMS', 10),
-(4, 'Request', 'TSMS', 20),
-(5, 'Approve', 'TSMS', 30),
-(6, 'Process', 'TSMS', 50);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `project_report`
---
-
-CREATE TABLE `project_report` (
-  `project_report_id` int(255) NOT NULL,
-  `project_name` varchar(100) NOT NULL,
-  `score` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `project_report`
---
-
-INSERT INTO `project_report` (`project_report_id`, `project_name`, `score`) VALUES
-(1, 'no project', 100),
-(2, 'CMS', 30),
-(3, 'TSMS', 100);
+INSERT INTO `project` (`project_id`, `project_name`) VALUES
+(9, 'q'),
+(10, 'o');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `detail_report`
+-- Indexes for table `activity`
 --
-ALTER TABLE `detail_report`
-  ADD PRIMARY KEY (`detail_report_id`);
+ALTER TABLE `activity`
+  ADD PRIMARY KEY (`activity_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
--- Indexes for table `list`
+-- Indexes for table `project`
 --
-ALTER TABLE `list`
-  ADD PRIMARY KEY (`list_id`);
-
---
--- Indexes for table `project_report`
---
-ALTER TABLE `project_report`
-  ADD PRIMARY KEY (`project_report_id`);
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`project_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `detail_report`
+-- AUTO_INCREMENT for table `activity`
 --
-ALTER TABLE `detail_report`
-  MODIFY `detail_report_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+ALTER TABLE `activity`
+  MODIFY `activity_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `list`
+-- AUTO_INCREMENT for table `project`
 --
-ALTER TABLE `list`
-  MODIFY `list_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `project`
+  MODIFY `project_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `project_report`
+-- Constraints for dumped tables
 --
-ALTER TABLE `project_report`
-  MODIFY `project_report_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for table `activity`
+--
+ALTER TABLE `activity`
+  ADD CONSTRAINT `activity_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
