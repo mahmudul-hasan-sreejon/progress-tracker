@@ -92,21 +92,30 @@ $(document).ready(function() {
 
 
         // DATE VALIDATION Format( yyyy-mm-dd ) <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-        
-        if( == ) {
-            // MM/dd/yyyy.
-            var date_regex = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
 
-            // MM/dd/yyyy.
+        // var date_regex = /^ ((19|20)\d{2}) (\/|-) (0[1-9]|1[0-2]) (\/|-) (0[1-9]|1\d|2\d|3[01]) $/;
 
-            if(!(date_regex.test(testDate))) {
-                alert("Enter Date in yyyy-mm-dd format");
-                return false;
-            }
+        var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
+
+        if(projected_start_date != '' && !(date_regex.test(projected_start_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
+        }
+        if(projected_end_date != '' && !(date_regex.test(projected_end_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
+        }
+
+        if(actual_start_date != '' && !(date_regex.test(actual_start_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
+        }
+        if(actual_end_date != '' && !(date_regex.test(actual_end_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
         }
 
         // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-
 
         // Insert data if all ok
         $.ajax({
@@ -168,60 +177,90 @@ $(document).ready(function() {
 
         edit_data(id, project_name, "project_name");
     });
+
     $(document).on('blur', '.projected_start_date', function() {
         var id = $(this).data("id3");
         var projected_start_date = $(this).text();
 
+        var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
+        if(projected_start_date != '' && !(date_regex.test(projected_start_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
+        }
+
         edit_data(id, projected_start_date, "projected_start_date");
     });
+
+
     $(document).on('blur', '.projected_end_date', function() {
         var id = $(this).data("id4");
         var projected_end_date = $(this).text();
 
+        var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
+        if(projected_end_date != '' && !(date_regex.test(projected_end_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
+        }
+
         edit_data(id, projected_end_date, "projected_end_date");
     });
+
     $(document).on('blur', '.actual_start_date', function() {
         var id = $(this).data("id5");
         var actual_start_date = $(this).text();
 
+        var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
+        if(actual_start_date != '' && !(date_regex.test(actual_start_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
+        }
+
         edit_data(id, actual_start_date, "actual_start_date");
     });
+
     $(document).on('blur', '.actual_end_date', function() {
         var id = $(this).data("id6");
         var actual_end_date = $(this).text();
 
+        var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
+        if(actual_end_date != '' && !(date_regex.test(actual_end_date))) {
+            alert("Enter Date in yyyy-mm-dd format");
+            return false;
+        }
+
         edit_data(id, actual_end_date, "actual_end_date");
     });
-    $(document).on('blur', '.projected_days', function() {
-        var id = $(this).data("id7");
-        var projected_days = $(this).text();
 
-        edit_data(id, projected_days, "projected_days");
-    });
-    $(document).on('blur', '.actual_days', function() {
-        var id = $(this).data("id8");
-        var actual_days = $(this).text();
+    // $(document).on('blur', '.projected_days', function() {
+    //     var id = $(this).data("id7");
+    //     var projected_days = $(this).text();
 
-        edit_data(id, actual_days, "actual_days");
-    });
-    $(document).on('blur', '.accuracy', function() {
-        var id = $(this).data("id9");
-        var accuracy = $(this).text();
+    //     edit_data(id, projected_days, "projected_days");
+    // });
+    // $(document).on('blur', '.actual_days', function() {
+    //     var id = $(this).data("id8");
+    //     var actual_days = $(this).text();
 
-        edit_data(id, accuracy, "accuracy");
-    });
+    //     edit_data(id, actual_days, "actual_days");
+    // });
+    // $(document).on('blur', '.accuracy', function() {
+    //     var id = $(this).data("id9");
+    //     var accuracy = $(this).text();
+
+    //     edit_data(id, accuracy, "accuracy");
+    // });
     $(document).on('blur', '.score', function() {
         var id = $(this).data("id10");
         var score = $(this).text();
 
         edit_data(id, score, "score");
     });
-    $(document).on('blur', '.stat', function() {
-        var id = $(this).data("id11");
-        var stat = $(this).text();
+    // $(document).on('blur', '.stat', function() {
+    //     var id = $(this).data("id11");
+    //     var stat = $(this).text();
 
-        edit_data(id, stat, "stat");
-    });
+    //     edit_data(id, stat, "stat");
+    // });
 
     // On event action for delete Button
     $(document).on('click', '.btn_delete', function() {

@@ -34,14 +34,19 @@ else {
 }
 
 // Accuracy checking
-if($projected_days >= $actual_days) {
-    $accuracy = "Ontime";
-}
-elseif($projected_days < $actual_days) {
-    $accuracy = "Delayed";
+if($projected_days > 0 and $actual_days > 0) {
+    if($projected_days >= $actual_days) {
+        $accuracy = "Ontime";
+    }
+    elseif($projected_days < $actual_days) {
+        $accuracy = "Delayed";
+    }
+    else {
+        $accuracy = "Pending";
+    }
 }
 else {
-    $accuracy = "Pending";
+	$accuracy = "Pending";
 }
 
 $score = $_POST["score"];
