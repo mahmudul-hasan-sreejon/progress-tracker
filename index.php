@@ -38,8 +38,6 @@
 
     <br><br>
 
-    <!-- Main Page contents here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
-
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebars -->
@@ -48,37 +46,54 @@
                 <div class="row-sm-2">
                     <ul class="list-group">
                         <?php
+
                         require('conn.php');
 
                         $query = "SELECT * FROM project";
                         $result = mysqli_query($conn, $query);
         
-                        $chart_1_data = "";
                         while($row = mysqli_fetch_array($result)) {
-                            $project_name = $row["project_name"];
                             $project_id = $row["project_id"];
+                            $query2 = "SELECT COUNT(*) FROM activity WHERE project_id = '$project_id'";
+                            $result2 = mysqli_query($conn, $query2);
+                            $row2 = mysqli_fetch_array($result2);
+                            $counter = $row2["COUNT(*)"];
+
+                            echo "
+                                <li class='list-group-item d-flex justify-content-between align-items-center'>
+                                    ".$row["project_name"]."
+                                    <span class='badge badge-primary badge-pill'>".$counter."</span>
+                                </li>";
                         }
 
+                        mysqli_close($conn);
+
                         ?>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Project 1
-                            <span class="badge badge-primary badge-pill">3</span>
-                        </li>
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            Project 2
-                            <span class="badge badge-primary badge-pill">2</span>
-                        </li>
                     </ul>
                 </div>
 
-                <div class="row-sm-2"><p>blank space</p></div>
+                <div class="row-sm-2" style="margin: 50px 0 50px 0;"></div>
 
                 <!-- Activity list -->
                 <div class="row-sm-2">
-                    <ul>
-                        <li>Activity # 1</li>
-                        <li>Activity # 2</li>
-                    </ul>
+                    <div class="list-group">
+                        <?php
+
+                        require('conn.php');
+
+                        $query = "SELECT activity_name FROM activity";
+                        $result = mysqli_query($conn, $query);
+
+                        while($row = mysqli_fetch_array($result)) {
+                            echo "
+                                <button type='button' class='list-group-item list-group-item-action'>".$row["activity_name"]."</button>";
+ 
+                        }
+
+                        mysqli_close($conn);
+
+                        ?>
+                    </div>
                 </div>
             </div>
 
@@ -123,7 +138,7 @@
 
                 ?>
 
-                <h3>Chart 1</h3>
+                <h3>Project Analysis</h3>
                 <div id="chart_1"></div>
             </div>
 
@@ -164,13 +179,11 @@
                 
                 ?>
                 
-                <h3>Chart 2</h3>
+                <h3>Project Analysis</h3>
                 <div id="chart_2"></div>
             </div>
         </div>
     </div>
-
-    <!-- Main Page content ends here <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< -->
 
     <!-- Latest compiled JavaScript and jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
