@@ -5,11 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- Latest compiled and minified CSS -->
+     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-
-    <!-- User defined stylesheet -->
-    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
@@ -36,58 +33,7 @@
         </div>
     </nav>
 
-    <br><br>
-
-    <!-- CODE HERE -->
-
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Sidebars -->
-            <div class="sidenav">
-                <!-- 1st Sidebar -->
-                <div class="lable"><h5>Projects</h5></label></div>
-                <div class="col">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
-                    </div>
-                </div>
-
-                <!-- 2nd Sidebar -->
-                <div class="lable"><h5>Activities</h5></label></div>
-                <div class="col">
-                    <div class="list-group" id="list-tab" role="tablist">
-                        <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-                        <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-                        <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages asdadasd asd</a>
-                        <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Charts -->
-            <div class="main row">
-                <!-- Chart 1 -->
-                <div class="col">
-                    <h2>Chart 1</h2>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, rem unde distinctio quis maxime itaque ducimus reiciendis, autem culpa, eaque sequi? Amet impedit facilis dolorem dolor, tenetur quis adipisci ducimus.</p>
-                </div>
-
-                <!-- Chart 2 -->
-                <div class="col">
-                    <h2>Chart 2</h2>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio cupiditate consectetur, dolor ex animi architecto excepturi pariatur accusantium? Illo enim saepe odio excepturi natus quo sint incidunt odit facilis accusamus?</p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+    <center><h1>Chart Page</h1></center>
 
     <!-- Latest compiled JavaScript and jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
