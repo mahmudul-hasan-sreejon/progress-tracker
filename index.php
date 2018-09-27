@@ -86,8 +86,7 @@
 
                         while($row = mysqli_fetch_array($result)) {
                             echo "
-                                <button type='button' class='list-group-item list-group-item-action'>".$row["activity_name"]."</button>";
- 
+                                <button type='button' class='list-group-item list-group-item-action' id='btn_update' name='btn_update'>".$row["activity_name"]."</button>";
                         }
 
                         mysqli_close($conn);
@@ -222,4 +221,9 @@ Morris.Bar({
     barColors: ['#edc240', '#cb4b4b', '#9440ed', '#1fbba6', '#f8aa33', '#4da74d', '#afd8f8'],
     barOpacity: 0.9
 });
+
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+
+
+
 </script>
