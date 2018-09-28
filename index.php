@@ -86,7 +86,7 @@
 
                         while($row = mysqli_fetch_array($result)) {
                             echo "
-                                <button type='button' class='list-group-item list-group-item-action' id='btn_update' name='btn_update'>".$row["activity_name"]."</button>";
+                                <button type='button' class='list-group-item list-group-item-action' id='btn_update'>".$row["activity_name"]."</button>";
                         }
 
                         mysqli_close($conn);
