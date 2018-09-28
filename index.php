@@ -97,7 +97,7 @@
             </div>
 
             <!-- Chart 1 -->
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <?php
                 
                 require('conn.php');
@@ -142,7 +142,7 @@
             </div>
 
             <!-- Chart 2 -->
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <?php
                 
                 require('conn.php');
@@ -206,7 +206,11 @@ Morris.Bar({
     stacked: false,
     resize: true,
     barColors: ['#1fbba6', '#f8aa33', '#4da74d', '#afd8f8', '#edc240', '#cb4b4b', '#9440ed'],
-    barOpacity: 0.9
+    barOpacity: 0.9,
+    barGap: 0,
+    barSizeRatio: 0.46,
+    gridTextSize: 10,
+    xLabelAngle: 30
 });
 
 Morris.Bar({
@@ -219,11 +223,10 @@ Morris.Bar({
     stacked: false,
     resize: true,
     barColors: ['#edc240', '#cb4b4b', '#9440ed', '#1fbba6', '#f8aa33', '#4da74d', '#afd8f8'],
-    barOpacity: 0.9
+    barOpacity: 0.9,
+    barGap: 0,
+    barSizeRatio: 0.46,
+    gridTextSize: 10,
+    xLabelAngle: 30
 });
-
-// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-
-
-
 </script>
