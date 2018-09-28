@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 26, 2018 at 10:33 PM
+-- Generation Time: Sep 28, 2018 at 12:56 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -48,9 +48,12 @@ CREATE TABLE `activity` (
 --
 
 INSERT INTO `activity` (`activity_id`, `activity_name`, `projected_start_date`, `projected_end_date`, `actual_start_date`, `actual_end_date`, `projected_days`, `actual_days`, `accuracy`, `score`, `stat`, `project_id`) VALUES
-(27, '2', '2018-02-28', '2018-03-03', '0000-00-00', '0000-00-00', 4, 0, 'Pending', 2, 'N', 9),
-(28, '4', '2018-01-01', '2018-01-05', '2018-01-02', '2018-01-05', 5, 4, 'Ontime', 5, 'Y', 10),
-(29, '3', '0000-00-00', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, 'Pending', 5, 'N', 10);
+(1, 'SMS module', '2018-08-01', '2018-08-05', '0000-00-00', '0000-00-00', 5, 0, 'Pending', 0, 'N', 1),
+(2, 'Customer Profile', '2018-08-05', '2018-08-07', '2018-08-05', '2018-08-07', 3, 3, 'Ontime', 20, 'Y', 1),
+(3, 'SLA', '2018-08-06', '2018-08-08', '2018-08-06', '2018-08-09', 3, 4, 'Delayed', 10, 'Y', 1),
+(4, 'Request', '2018-08-01', '2018-08-05', '2018-08-04', '2018-08-05', 5, 2, 'Ontime', 20, 'Y', 2),
+(5, 'Approve', '2018-08-08', '2018-08-10', '2018-08-08', '2018-08-09', 3, 2, 'Ontime', 30, 'Y', 2),
+(6, 'Process', '2018-08-11', '2018-08-15', '2018-08-10', '2018-08-12', 5, 3, 'Ontime', 50, 'Y', 2);
 
 -- --------------------------------------------------------
 
@@ -68,8 +71,8 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`project_id`, `project_name`) VALUES
-(9, 'q'),
-(10, 'o');
+(1, 'CMS'),
+(2, 'TSMS');
 
 --
 -- Indexes for dumped tables
@@ -96,13 +99,13 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT for table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `activity_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `activity_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `project_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
