@@ -10,6 +10,9 @@
 
     <!-- Morris Chart Style -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
+    <!-- User Defined Stylesheets -->
+    <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
@@ -138,6 +141,7 @@
                 ?>
 
                 <h3>Project Analysis</h3>
+                <center><div id="legend_1"></div></center>
                 <div id="chart_1"></div>
             </div>
 
@@ -179,6 +183,7 @@
                 ?>
                 
                 <h3>Project Analysis</h3>
+                <center><div id="legend_2"></div></center>
                 <div id="chart_2"></div>
             </div>
         </div>
@@ -196,7 +201,8 @@
 </html>
 
 <script>
-Morris.Bar({
+// chart 1
+var chart_1 = Morris.Bar({
     element : 'chart_1',
     data: [<?php echo $chart_1_data; ?>],
     xkey: ['project_name'],
@@ -213,7 +219,14 @@ Morris.Bar({
     xLabelAngle: 30
 });
 
-Morris.Bar({
+chart_1.options.labels.forEach(function(label, i) {
+    var legendItem = $('<span></span>').text(label).css('color', chart_1.options.barColors[i]);
+
+    $('#legend_1').append(legendItem);
+});
+
+// chart 2
+var chart_2 = Morris.Bar({
     element : 'chart_2',
     data: [<?php echo $chart_2_data; ?>],
     xkey: ['activity_name'],
@@ -228,5 +241,11 @@ Morris.Bar({
     barSizeRatio: 0.46,
     gridTextSize: 10,
     xLabelAngle: 30
+});
+
+chart_2.options.labels.forEach(function(label, i) {
+    var legendItem = $('<span></span>').text(label).css('color', chart_2.options.barColors[i]);
+
+    $('#legend_2').append(legendItem);
 });
 </script>
