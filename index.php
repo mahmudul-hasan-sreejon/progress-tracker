@@ -89,7 +89,7 @@
 
                         while($row = mysqli_fetch_array($result)) {
                             echo "
-                                <button type='button' class='list-group-item list-group-item-action' id='btn_update'>".$row["activity_name"]."</button>";
+                                <button type='button' class='list-group-item list-group-item-action' id='btn_update' onclick='update(this.name)' name='".$row["activity_name"]."'>".$row["activity_name"]."</button>";
                         }
 
                         mysqli_close($conn);
@@ -147,44 +147,15 @@
 
             <!-- Chart 2 -->
             <div class="col-sm-6">
-                <?php
-                
-                require('conn.php');
-
-                $query = "SELECT project_id FROM project";
-                $result = mysqli_query($conn, $query);
-
-                $chart_2_data = "";
-                while($row = mysqli_fetch_array($result)) {
-                    $project_id = $row["project_id"];
-
-                    // Fetching all activity_name, projected_days, actual_days values of same project
-                    $query2 = "SELECT activity_name, projected_days, actual_days FROM activity WHERE project_id='$project_id'";
-                    $result2 = mysqli_query($conn, $query2);
-                    while($row2 = mysqli_fetch_array($result2)) {
-                        $activity_name = $row2["activity_name"];
-                        $projected_days = $row2["projected_days"];
-                        $actual_days = $row2["actual_days"];
-
-                        $chart_2_data .= "{ 
-                            activity_name:'".$activity_name."',
-                            projected_days:".$projected_days.",
-                            actual_days:".$actual_days."
-                        }, ";
-                    }
-                }
-
-                $chart_2_data = substr($chart_2_data, 0, -2);
-
-                // echo $chart_2_data;
-
-                mysqli_close($conn);
-                
-                ?>
-                
+            
                 <h3>Project Analysis</h3>
-                <center><div id="legend_2"></div></center>
-                <div id="chart_2"></div>
+                <div id="live_data">
+                    <!--
+                    <center><div id="legend_2"></div></center>
+                    <div id="chart_2"></div>
+                    -->
+                </div>
+                
             </div>
         </div>
     </div>
@@ -201,7 +172,6 @@
 </html>
 
 <script>
-// chart 1
 var chart_1 = Morris.Bar({
     element : 'chart_1',
     data: [<?php echo $chart_1_data; ?>],
@@ -225,27 +195,30 @@ chart_1.options.labels.forEach(function(label, i) {
     $('#legend_1').append(legendItem);
 });
 
-// chart 2
-var chart_2 = Morris.Bar({
-    element : 'chart_2',
-    data: [<?php echo $chart_2_data; ?>],
-    xkey: ['activity_name'],
-    ykeys: ['projected_days', 'actual_days'],
-    labels: ['Projected Days', 'Actual Days'],
-    hideHover: 'auto',
-    stacked: false,
-    resize: true,
-    barColors: ['#edc240', '#cb4b4b', '#9440ed', '#1fbba6', '#f8aa33', '#4da74d', '#afd8f8'],
-    barOpacity: 0.9,
-    barGap: 0,
-    barSizeRatio: 0.46,
-    gridTextSize: 10,
-    xLabelAngle: 30
-});
+function fetch_data() {
+    $.ajax({
+        url: "chart/select.php",
+        method: "POST",
+        success: function(data) {
+            $('#live_data').html(data);
+        }
+    });
+}
 
-chart_2.options.labels.forEach(function(label, i) {
-    var legendItem = $('<span></span>').text(label).css('color', chart_2.options.barColors[i]);
+fetch_data();
 
-    $('#legend_2').append(legendItem);
-});
+function update(activity_name) {
+    // alert(activity_name);
+    $.ajax({
+        url: "chart/update.php",
+        method: "POST",
+        data: {
+            activity_name: activity_name
+        },
+        dataType: "text",
+        success: function(data) {
+            $('#live_data').html(data);
+        }
+    });
+}
 </script>
