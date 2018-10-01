@@ -79,7 +79,7 @@
 
                 <!-- Activity list -->
                 <div class="row-sm-2">
-                    <div class="list-group">
+                    <div class="list-group" id="activity_list" role="tablist">
                         <?php
 
                         require('conn.php');
@@ -89,7 +89,7 @@
 
                         while($row = mysqli_fetch_array($result)) {
                             echo "
-                                <button type='button' class='list-group-item list-group-item-action' id='btn_update' onclick='update(this.name)' name='".$row["activity_name"]."'>".$row["activity_name"]."</button>";
+                                <a class='list-group-item list-group-item-action' data-toggle='list' role='tab' name='".$row["activity_name"]."' onclick='update(this.name)'>".$row["activity_name"]."</a>";
                         }
 
                         mysqli_close($conn);
@@ -147,22 +147,15 @@
 
             <!-- Chart 2 -->
             <div class="col-sm-6">
-            
                 <h3>Project Analysis</h3>
-                <div id="live_data">
-                    <!--
-                    <center><div id="legend_2"></div></center>
-                    <div id="chart_2"></div>
-                    -->
-                </div>
-                
+                <div id="live_data"></div>
             </div>
         </div>
     </div>
 
     <!-- Latest compiled JavaScript and jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
     <!-- Morris chart Lib -->
@@ -209,6 +202,7 @@ fetch_data();
 
 function update(activity_name) {
     // alert(activity_name);
+
     $.ajax({
         url: "chart/update.php",
         method: "POST",
