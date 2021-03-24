@@ -1,4 +1,4 @@
-# PHP Spreadsheet
+# Project Manager
 
 A web app that allows to read and write spreadsheet on web browser.
 
