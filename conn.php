@@ -2,6 +2,6 @@
 
 // error_reporting(0);
 
-$conn = mysqli_connect('localhost', 'root', '', 'test_database') or die(mysqli_connect_error());
+$conn = mysqli_connect('localhost', 'root', '', 'data') or die(mysqli_connect_error());
 
 ?>
