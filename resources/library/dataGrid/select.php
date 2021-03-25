@@ -1,6 +1,6 @@
 <?php
 
-require('../conn.php');
+require('../../../conn.php');
 
 $query = "SELECT * FROM project INNER JOIN activity ON project.project_id = activity.project_id";
 $result = mysqli_query($conn, $query);

@@ -1,6 +1,6 @@
 <?php
 
-require('../conn.php');
+require('../../../conn.php');
 
 $id = $_POST["id"];
 $text = $_POST["text"];

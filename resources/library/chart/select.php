@@ -1,25 +1,31 @@
 <?php
 
-require('../conn.php');
+require('../../../conn.php');
 
-$activity_name = $_POST["activity_name"];
-
-$query = "SELECT projected_days, actual_days FROM activity WHERE activity_name = '$activity_name'";
+$query = "SELECT project_id FROM project";
 $result = mysqli_query($conn, $query);
 
-$row = mysqli_fetch_array($result);
+$chart_2_data = "";
+while($row = mysqli_fetch_array($result)) {
+    $project_id = $row["project_id"];
 
-$projected_days = $row["projected_days"];
-$actual_days = $row["actual_days"];
+    // Fetching all activity_name, projected_days, actual_days values of same project
+    $query2 = "SELECT activity_name, projected_days, actual_days FROM activity WHERE project_id='$project_id'";
+    $result2 = mysqli_query($conn, $query2);
+    while($row2 = mysqli_fetch_array($result2)) {
+        $activity_name = $row2["activity_name"];
+        $projected_days = $row2["projected_days"];
+        $actual_days = $row2["actual_days"];
 
+        $chart_2_data .= "{ 
+            activity_name:'".$activity_name."',
+            projected_days:".$projected_days.",
+            actual_days:".$actual_days."
+        }, ";
+    }
+}
 
-$chart_2_data = "{ 
-    activity_name:'".$activity_name."',
-    projected_days:".$projected_days.",
-    actual_days:".$actual_days."
-}";
-
-// echo $chart_2_data;
+$chart_2_data = substr($chart_2_data, 0, -2);
 
 mysqli_close($conn);
 

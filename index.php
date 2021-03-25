@@ -190,7 +190,7 @@ chart_1.options.labels.forEach(function(label, i) {
 
 function fetch_data() {
     $.ajax({
-        url: "chart/select.php",
+        url: "resources/library/chart/select.php",
         method: "POST",
         success: function(data) {
             $('#live_data').html(data);
@@ -204,7 +204,7 @@ function update(activity_name) {
     // alert(activity_name);
 
     $.ajax({
-        url: "chart/update.php",
+        url: "resources/library/chart/update.php",
         method: "POST",
         data: {
             activity_name: activity_name

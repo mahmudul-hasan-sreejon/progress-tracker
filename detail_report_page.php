@@ -55,7 +55,7 @@ $(document).ready(function() {
     // Fetching Data from Database (Live)
     function fetch_data() {
         $.ajax({
-            url: "data_grid/select.php",
+            url: "resources/library/dataGrid/select.php",
             method: "POST",
             success: function(data) {
 				$('#live_data').html(data);
@@ -121,7 +121,7 @@ $(document).ready(function() {
 
         // Insert data if all ok
         $.ajax({
-            url: "data_grid/insert.php",
+            url: "resources/library/dataGrid/insert.php",
             method: "POST",
             data: {
                 activity_name: activity_name,
@@ -151,7 +151,7 @@ $(document).ready(function() {
     // Edit existing data
 	function edit_data(id, text, column_name) {
         $.ajax({
-            url: "data_grid/edit.php",
+            url: "resources/library/dataGrid/edit.php",
             method: "POST",
             data: {
                 id: id,
@@ -275,7 +275,7 @@ $(document).ready(function() {
 
         if(confirm("Are you sure you want to delete this?")) {
             $.ajax({
-                url : "data_grid/delete.php",
+                url : "resources/library/dataGrid/delete.php",
                 method : "POST",
                 data: {
                     id: id

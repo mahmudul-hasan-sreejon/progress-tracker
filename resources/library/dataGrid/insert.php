@@ -1,6 +1,6 @@
 <?php
 
-require('../conn.php');
+require('../../../conn.php');
 
 $activity_name = $_POST["activity_name"];
 $project_name = $_POST["project_name"];
