@@ -21,13 +21,13 @@
                     <a class="nav-link" href="index.php">Chart</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="project_report_page.php">Poject Report</a>
+                    <a class="nav-link" href="report.php">Poject Report</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Detail Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="list_page.php">List</a>
+                    <a class="nav-link" href="list.php">List</a>
                 </li>
             </ul>
         </div>

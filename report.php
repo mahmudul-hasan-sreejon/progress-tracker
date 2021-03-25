@@ -24,10 +24,10 @@
                     <a class="nav-link" href="#">Poject Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="detail_report_page.php">Detail Report</a>
+                    <a class="nav-link" href="details.php">Detail Report</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="list_page.php">List</a>
+                    <a class="nav-link" href="list.php">List</a>
                 </li>
             </ul>
         </div>
