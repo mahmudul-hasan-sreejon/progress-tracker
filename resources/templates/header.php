@@ -20,6 +20,9 @@
 
     <!-- Custom styles -->
     <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
 </head>
 
 <body>
