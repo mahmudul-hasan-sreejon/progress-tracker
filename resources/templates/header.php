@@ -26,22 +26,27 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#"><?php echo $config["projectName"]; ?></a>
-            </div>
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="#"><?php echo $config["projectName"]; ?></a>
 
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item <?php echo ($currentPage === 'index') ? 'active' : ''; ?>">
                     <a class="nav-link" href="index.php">Progression</a>
                 </li>
+
                 <li class="nav-item <?php echo ($currentPage === 'report') ? 'active' : ''; ?>">
                     <a class="nav-link" href="report.php">Report</a>
                 </li>
+
                 <li class="nav-item <?php echo ($currentPage === 'details') ? 'active' : ''; ?>">
                     <a class="nav-link" href="details.php">Add/Remove Details</a>
                 </li>
+
                 <li class="nav-item <?php echo ($currentPage === 'list') ? 'active' : ''; ?>">
                     <a class="nav-link" href="list.php">Activity List</a>
                 </li>
