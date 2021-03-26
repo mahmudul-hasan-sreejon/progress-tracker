@@ -33,7 +33,10 @@ function fetch_data() {
     });
 }
 
-fetch_data();
+// On page reload
+$(document).ready(function() {
+    fetch_data();
+});
 
 function update(activity_name) {
     $.ajax({
