@@ -22,6 +22,8 @@ require_once(TEMPLATES_PATH . "/chart2.php");
 echo '
         </div>
     </div>
+
+    <div class="margin-bottom-5rem"></div>
 ';
 
 require_once(TEMPLATES_PATH . "/footer.php");

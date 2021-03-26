@@ -32,8 +32,9 @@ $chart_2_data = substr($chart_2_data, 0, -2);
 mysqli_close($conn);
 
 $output = '
-    <center><div id="legend_2"></div></center>
-    <div id="chart_2"></div>';
+    <div id="legend_2"></div>
+    <div id="chart_2"></div>
+';
 
 echo $output;
 

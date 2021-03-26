@@ -18,6 +18,8 @@ require_once(TEMPLATES_PATH . "/activityList.php");
 echo '
         </div>
     </div>
+
+    <div class="margin-bottom-5rem"></div>
 ';
 
 require_once(TEMPLATES_PATH . "/footer.php");

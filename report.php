@@ -18,6 +18,8 @@ require_once(TEMPLATES_PATH . "/projectScore.php");
 echo '
         </div>
     </div>
+
+    <div class="margin-bottom-5rem"></div>
 ';
 
 require_once(TEMPLATES_PATH . "/footer.php");
