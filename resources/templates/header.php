@@ -31,16 +31,16 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item <?php echo ($currentPage === 'index') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="index.php">Charts</a>
+                    <a class="nav-link" href="index.php">Progression</a>
                 </li>
                 <li class="nav-item <?php echo ($currentPage === 'report') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="report.php">Poject Report</a>
+                    <a class="nav-link" href="report.php">Report</a>
                 </li>
                 <li class="nav-item <?php echo ($currentPage === 'details') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="details.php">Detail Report</a>
+                    <a class="nav-link" href="details.php">Add/Remove Details</a>
                 </li>
                 <li class="nav-item <?php echo ($currentPage === 'list') ? 'active' : ''; ?>">
-                    <a class="nav-link" href="list.php">List</a>
+                    <a class="nav-link" href="list.php">Activity List</a>
                 </li>
             </ul>
         </div>
