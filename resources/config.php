@@ -8,7 +8,9 @@ $config = array(
             "password" => "",
             "host" => "localhost"
         )
-    )
+    ),
+
+    "projectName" => "Progress Tracker"
 );
 
 defined("LIBRARY_PATH") or define("LIBRARY_PATH", realpath(dirname(__FILE__) . '/library'));

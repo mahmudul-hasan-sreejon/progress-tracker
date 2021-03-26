@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test Project</title>
+    <title><?php echo $config["projectName"]; ?></title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -26,7 +26,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Test Project</a>
+                <a class="navbar-brand" href="#"><?php echo $config["projectName"]; ?></a>
             </div>
 
             <ul class="navbar-nav">
