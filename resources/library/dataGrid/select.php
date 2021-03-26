@@ -1,6 +1,8 @@
 <?php
 
-require('../conn.php');
+require_once("../../config.php");
+
+$conn = mysqli_connect($config["db"]["mysql"]["host"], $config["db"]["mysql"]["username"], $config["db"]["mysql"]["password"], $config["db"]["mysql"]["dbname"]) or die(mysqli_connect_error());
 
 $query = "SELECT * FROM project INNER JOIN activity ON project.project_id = activity.project_id";
 $result = mysqli_query($conn, $query);

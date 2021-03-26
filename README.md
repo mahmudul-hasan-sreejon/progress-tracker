@@ -1,6 +1,6 @@
-# Project Manager
+# Progress Tracker
 
-A web app that allows to read and write spreadsheet on web browser.
+A web app that tracks project development cycle.
 
 ![demo](https://raw.githubusercontent.com/mahmudul-hasan-sreejon/php-spreadsheet/main/static/demo.png)
 

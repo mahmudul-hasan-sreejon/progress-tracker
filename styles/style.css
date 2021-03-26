@@ -1,0 +1,31 @@
+#legend_1 {
+	height: 50px;
+}
+#legend_1 span {
+	display: inline-block;
+	padding: 15px 15px;
+}
+#legend_1 span:after {
+	padding-left: 4px;
+	content: '■';
+}
+
+#legend_2 {
+	height: 50px;
+}
+#legend_2 span {
+	display: inline-block;
+	padding: 15px 15px;
+}
+#legend_2 span:after {
+	padding-left: 4px;
+	content: '■';
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 0;
+	margin-top: 1.2rem;
+}

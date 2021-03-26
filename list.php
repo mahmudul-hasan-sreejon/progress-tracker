@@ -10,14 +10,10 @@ echo '<br>';
 
 echo '
     <div class="container-fluid">
-        <div class="row">
+        <div class="table-responsive-sm text-center">
 ';
 
-require_once(TEMPLATES_PATH . "/sideBar.php");
-
-require_once(TEMPLATES_PATH . "/chart1.php");
-
-require_once(TEMPLATES_PATH . "/chart2.php");
+require_once(TEMPLATES_PATH . "/activityList.php");
 
 echo '
         </div>
