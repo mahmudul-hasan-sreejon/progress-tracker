@@ -10,18 +10,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
     <?php
-
     if($currentPage === "index") {
         echo '
             <!-- Morris Chart Style -->
             <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-
-            <!-- Custom styles -->
-            <link rel="stylesheet" href="styles/style.css">
         ';
     }
-
     ?>
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>

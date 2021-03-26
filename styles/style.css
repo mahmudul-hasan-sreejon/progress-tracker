@@ -21,3 +21,11 @@
 	padding-left: 4px;
 	content: '■';
 }
+
+footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	padding: 0;
+	margin-top: 1.2rem;
+}
