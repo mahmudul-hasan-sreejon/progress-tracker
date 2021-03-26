@@ -67,6 +67,10 @@
         ';
     }
 
+    if($currentPage === "details") {
+        require_once(SCRIPTS_PATH . "/dataGrid.php");
+    }
+
     ?>
 
 </body>
