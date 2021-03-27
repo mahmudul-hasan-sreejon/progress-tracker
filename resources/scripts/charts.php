@@ -1,6 +1,5 @@
 <script>
-
-var chart_1 = Morris.Bar({
+const chart_1 = Morris.Bar({
     element : "chart_1",
     data: [ <?php echo $chart_1_data; ?> ],
     xkey: ["project_name"],
@@ -18,7 +17,7 @@ var chart_1 = Morris.Bar({
 });
 
 chart_1.options.labels.forEach(function(label, i) {
-    var legendItem = $("<span></span>").text(label).css("color", chart_1.options.barColors[i]);
+    const legendItem = $("<span></span>").text(label).css("color", chart_1.options.barColors[i]);
 
     $("#legend_1").append(legendItem);
 });
@@ -51,5 +50,4 @@ function update(activity_name) {
         }
     });
 }
-
 </script>

@@ -1,5 +1,4 @@
 <script>
-
 // Fetching Data from Database (Live)
 function fetch_data() {
     $.ajax({
@@ -84,7 +83,7 @@ $(document).on("click", "#btn_add", function() {
         },
         dataType: "text",
         success: function(data) {
-            $("#result").html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>"+data+"</strong></div>");
+            $("#result").html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>" + data + "</strong></div>");
 
             fetch_data();
         }
@@ -103,10 +102,7 @@ function edit_data(id, text, column_name) {
         },
         dataType: "text",
         success: function(data) {
-            // alert(data);
-            // $('#result').html("<div class='alert alert-success'>"+data+"</div>");
-
-            $('#result').html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>"+data+"</strong></div>");
+            $('#result').html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>" + data + "</strong></div>");
 
             fetch_data();
         }
@@ -200,12 +196,11 @@ $(document).on("click", ".btn_delete", function() {
             },
             dataType: "text",
             success: function(data) {
-                $("#result").html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>"+data+"</strong></div>");
+                $("#result").html("<div class='alert alert-success alert-dismissible'><button type='button' class='close' data-dismiss='alert'>×</button><strong>" + data + "</strong></div>");
 
                 fetch_data();
             }
         });
     }
 });
-
 </script>
