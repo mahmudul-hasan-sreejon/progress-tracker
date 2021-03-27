@@ -1,5 +1,4 @@
 <?php
-
 require_once("../../config.php");
 
 $conn = mysqli_connect($config["db"]["mysql"]["host"], $config["db"]["mysql"]["username"], $config["db"]["mysql"]["password"], $config["db"]["mysql"]["dbname"]) or die(mysqli_connect_error());
@@ -7,7 +6,6 @@ $conn = mysqli_connect($config["db"]["mysql"]["host"], $config["db"]["mysql"]["u
 $id = $_POST["id"];
 $text = $_POST["text"];
 $column_name = $_POST["column_name"];
-
 
 // Day difference counter function
 function day_calc($start_date, $end_date) {
@@ -21,7 +19,6 @@ function day_calc($start_date, $end_date) {
     return 0;
 }
 
-
 if($column_name == "project_name") {
 	$query = "SELECT project_id FROM activity WHERE activity_id = '$id'";
 	$result = mysqli_query($conn, $query);
@@ -30,11 +27,10 @@ if($column_name == "project_name") {
 	$project_id = $row["project_id"];
 
 	$query = "UPDATE project SET project_name = '$text' WHERE project_id = '$project_id'";
-
-	// echo '<br>('.$column_name.', '.$text.', '.')<br>';
 }
 else {
-	mysqli_query($conn, "UPDATE activity SET $column_name = '$text' WHERE activity_id = '$id'");
+	$query = "UPDATE activity SET $column_name = '$text' WHERE activity_id = '$id'";
+	mysqli_query($conn, $query);
 
 	$query = mysqli_query($conn, "SELECT * FROM activity WHERE activity_id = '$id'");
 	$result = mysqli_fetch_object($query);
@@ -98,5 +94,4 @@ if(mysqli_query($conn, $query)) {
 }
 
 mysqli_close($conn);
-
 ?>

@@ -1,5 +1,4 @@
 <?php
-
 require_once("../../config.php");
 
 $conn = mysqli_connect($config["db"]["mysql"]["host"], $config["db"]["mysql"]["username"], $config["db"]["mysql"]["password"], $config["db"]["mysql"]["dbname"]) or die(mysqli_connect_error());
@@ -28,7 +27,8 @@ $output .= '
                     <th>Status</th>
                     <th></th>
                 </tr>
-            </thead>';
+            </thead>
+';
 
 // Checking for data from the database
 $rows = mysqli_num_rows($result);
@@ -57,7 +57,8 @@ if($rows > 0) { // If data found
                 <td class="stat" data-id11="'.$row["activity_id"].'" contenteditable=false>'.$row["stat"].'</td>
                 
                 <td><button type="button" name="delete_btn" data-id12="'.$row["activity_id"].'" class="btn btn-xs btn-danger btn_delete">x</button></td>
-            </tr>';
+            </tr>
+        ';
     }
 
     // Last row of the table
@@ -86,34 +87,35 @@ if($rows > 0) { // If data found
 }
 else { // If not found
     $output .= '
-            <tr>
-                <td></td>
-                <td id="activity_name" contenteditable></td>
-                <td id="project_name" contenteditable></td>
-    
-                <td id="projected_start_date" contenteditable></td>
-                <td id="projected_end_date" contenteditable></td>
-    
-                <td id="actual_start_date" contenteditable></td>
-                <td id="actual_end_date" contenteditable></td>
-    
-                <td id="projected_days" contenteditable=false></td>
-                <td id="actual_days" contenteditable=false></td>
-                
-                <td id="accuracy" contenteditable=false></td>
-                <td id="score" contenteditable></td>
-                <td id="stat" contenteditable=false></td>
+        <tr>
+            <td></td>
+            <td id="activity_name" contenteditable></td>
+            <td id="project_name" contenteditable></td>
 
-                <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>
-            </tr>';
+            <td id="projected_start_date" contenteditable></td>
+            <td id="projected_end_date" contenteditable></td>
+
+            <td id="actual_start_date" contenteditable></td>
+            <td id="actual_end_date" contenteditable></td>
+
+            <td id="projected_days" contenteditable=false></td>
+            <td id="actual_days" contenteditable=false></td>
+            
+            <td id="accuracy" contenteditable=false></td>
+            <td id="score" contenteditable></td>
+            <td id="stat" contenteditable=false></td>
+
+            <td><button type="button" name="btn_add" id="btn_add" class="btn btn-xs btn-success">+</button></td>
+        </tr>
+    ';
 }
 
 $output .= '</tbody>
         </table>  
-    </div>';
+    </div>
+';
 
 echo $output;
 
 mysqli_close($conn);
-
 ?>

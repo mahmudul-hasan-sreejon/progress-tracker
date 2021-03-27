@@ -1,5 +1,4 @@
 <?php
-
 require_once("../../config.php");
 
 $conn = mysqli_connect($config["db"]["mysql"]["host"], $config["db"]["mysql"]["username"], $config["db"]["mysql"]["password"], $config["db"]["mysql"]["dbname"]) or die(mysqli_connect_error());
@@ -10,8 +9,6 @@ $projected_start_date = $_POST["projected_start_date"];
 $projected_end_date = $_POST["projected_end_date"];
 $actual_start_date = $_POST["actual_start_date"];
 $actual_end_date = $_POST["actual_end_date"];
-
-// echo '<br>( '.$projected_start_date.', '.$projected_end_date.' )<br>';
 
 if($projected_start_date != "" and $projected_end_date != "") {
     $dateOne = DateTime::createFromFormat('Y-m-d', $projected_end_date);
@@ -85,5 +82,4 @@ if(mysqli_query($conn, $query)) {
 }
 
 mysqli_close($conn);
-
 ?>

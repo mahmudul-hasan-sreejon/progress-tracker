@@ -1,5 +1,4 @@
 <?php
-
 require_once("../../config.php");
 
 $conn = mysqli_connect($config["db"]["mysql"]["host"], $config["db"]["mysql"]["username"], $config["db"]["mysql"]["password"], $config["db"]["mysql"]["dbname"]) or die(mysqli_connect_error());
@@ -14,16 +13,18 @@ while($row = mysqli_fetch_array($result)) {
     // Fetching all activity_name, projected_days, actual_days values of same project
     $query2 = "SELECT activity_name, projected_days, actual_days FROM activity WHERE project_id='$project_id'";
     $result2 = mysqli_query($conn, $query2);
+
     while($row2 = mysqli_fetch_array($result2)) {
         $activity_name = $row2["activity_name"];
         $projected_days = $row2["projected_days"];
         $actual_days = $row2["actual_days"];
-
-        $chart_2_data .= "{ 
-            activity_name:'".$activity_name."',
-            projected_days:".$projected_days.",
-            actual_days:".$actual_days."
-        }, ";
+        $chart_2_data .= "
+            { 
+                activity_name:'".$activity_name."',
+                projected_days:".$projected_days.",
+                actual_days:".$actual_days."
+            },
+        ";
     }
 }
 
@@ -37,11 +38,10 @@ $output = '
 ';
 
 echo $output;
-
 ?>
 
 <script>
-var chart_2 = Morris.Bar({
+const chart_2 = Morris.Bar({
     element : 'chart_2',
     data: [<?php echo $chart_2_data; ?>],
     xkey: ['activity_name'],
@@ -59,7 +59,7 @@ var chart_2 = Morris.Bar({
 });
 
 chart_2.options.labels.forEach(function(label, i) {
-    var legendItem = $('<span></span>').text(label).css('color', chart_2.options.barColors[i]);
+    const legendItem = $('<span></span>').text(label).css('color', chart_2.options.barColors[i]);
 
     $('#legend_2').append(legendItem);
 });
