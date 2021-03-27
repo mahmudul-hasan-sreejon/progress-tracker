@@ -15,19 +15,22 @@ $(document).ready(function() {
     fetch_data();
 });
 
+// DATE VALIDATION Format (yyyy-mm-dd)
+const date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
+
 // Event action for add Button
 $(document).on("click", "#btn_add", function() {
-    var activity_name = $("#activity_name").text();
-    var project_name = $("#project_name").text();
-    var projected_start_date = $("#projected_start_date").text();
-    var projected_end_date = $("#projected_end_date").text();
-    var actual_start_date = $("#actual_start_date").text();
-    var actual_end_date = $("#actual_end_date").text();
-    var projected_days = $("#projected_days").text();
-    var actual_days = $("#actual_days").text();
-    var accuracy = $("#accuracy").text();
-    var score = $("#score").text();
-    var stat = $("#stat").text();
+    const activity_name = $("#activity_name").text();
+    const project_name = $("#project_name").text();
+    const projected_start_date = $("#projected_start_date").text();
+    const projected_end_date = $("#projected_end_date").text();
+    const actual_start_date = $("#actual_start_date").text();
+    const actual_end_date = $("#actual_end_date").text();
+    const projected_days = $("#projected_days").text();
+    const actual_days = $("#actual_days").text();
+    const accuracy = $("#accuracy").text();
+    const score = $("#score").text();
+    const stat = $("#stat").text();
     
     // Field Validation after button click
     if(activity_name == "") {
@@ -42,9 +45,6 @@ $(document).on("click", "#btn_add", function() {
         alert("Enter Activity Score");
         return false;
     }
-
-    // DATE VALIDATION Format( yyyy-mm-dd )
-    var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
 
     if(projected_start_date != "" && !(date_regex.test(projected_start_date))) {
         alert("Enter Date in yyyy-mm-dd format");
@@ -111,24 +111,23 @@ function edit_data(id, text, column_name) {
 
 // On event actions for data grids
 $(document).on("blur", ".activity_name", function() {
-    var id = $(this).data("id1");
-    var activity_name = $(this).text();
+    const id = $(this).data("id1");
+    const activity_name = $(this).text();
 
     edit_data(id, activity_name, "activity_name");
 });
 
 $(document).on("blur", ".project_name", function() {
-    var id = $(this).data("id2");
-    var project_name = $(this).text();
+    const id = $(this).data("id2");
+    const project_name = $(this).text();
 
     edit_data(id, project_name, "project_name");
 });
 
 $(document).on("blur", ".projected_start_date", function() {
-    var id = $(this).data("id3");
-    var projected_start_date = $(this).text();
+    const id = $(this).data("id3");
+    const projected_start_date = $(this).text();
 
-    var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
     if(projected_start_date != "" && !(date_regex.test(projected_start_date))) {
         alert("Enter Date in yyyy-mm-dd format");
         return false;
@@ -138,10 +137,9 @@ $(document).on("blur", ".projected_start_date", function() {
 });
 
 $(document).on("blur", ".projected_end_date", function() {
-    var id = $(this).data("id4");
-    var projected_end_date = $(this).text();
+    const id = $(this).data("id4");
+    const projected_end_date = $(this).text();
 
-    var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
     if(projected_end_date != "" && !(date_regex.test(projected_end_date))) {
         alert("Enter Date in yyyy-mm-dd format");
         return false;
@@ -151,10 +149,9 @@ $(document).on("blur", ".projected_end_date", function() {
 });
 
 $(document).on("blur", ".actual_start_date", function() {
-    var id = $(this).data("id5");
-    var actual_start_date = $(this).text();
+    const id = $(this).data("id5");
+    const actual_start_date = $(this).text();
 
-    var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
     if(actual_start_date != "" && !(date_regex.test(actual_start_date))) {
         alert("Enter Date in yyyy-mm-dd format");
         return false;
@@ -164,10 +161,9 @@ $(document).on("blur", ".actual_start_date", function() {
 });
 
 $(document).on("blur", ".actual_end_date", function() {
-    var id = $(this).data("id6");
-    var actual_end_date = $(this).text();
+    const id = $(this).data("id6");
+    const actual_end_date = $(this).text();
 
-    var date_regex = /^((19|20)\d{2})(\/|-)(0[1-9]|1[0-2])(\/|-)(0[1-9]|1\d|2\d|3[01])$/;
     if(actual_end_date != "" && !(date_regex.test(actual_end_date))) {
         alert("Enter Date in yyyy-mm-dd format");
         return false;
@@ -177,15 +173,15 @@ $(document).on("blur", ".actual_end_date", function() {
 });
 
 $(document).on("blur", ".score", function() {
-    var id = $(this).data("id10");
-    var score = $(this).text();
+    const id = $(this).data("id10");
+    const score = $(this).text();
 
     edit_data(id, score, "score");
 });
 
-// On event action for delete Button
+// On click event for delete Button
 $(document).on("click", ".btn_delete", function() {
-    var id = $(this).data("id12");
+    const id = $(this).data("id12");
 
     if(confirm("Are you sure you want to delete this?")) {
         $.ajax({
