@@ -34,7 +34,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item <?php echo ($currentPage === 'index') ? 'active' : ''; ?>">
                     <a class="nav-link" href="index.php">Progression</a>
                 </li>

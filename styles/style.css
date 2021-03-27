@@ -1,13 +1,13 @@
 #legend_1,
 #legend_2 {
-	height: 50px;
+	max-height: 50px;
 	text-align: center;
 }
 
 #legend_1 span,
 #legend_2 span {
 	display: inline-block;
-	padding: 15px 15px;
+	padding: 10px;
 }
 
 #legend_1 span:after,
@@ -32,4 +32,14 @@ footer {
 	bottom: 0;
 	width: 100%;
 	padding: 0;
+}
+
+footer .copyright-container a {
+	color: rgba(255, 255, 255, .5);
+	text-decoration: none;
+}
+footer .copyright-container a:focus,
+footer .copyright-container a:hover {
+	color: rgba(255, 255, 255, .75);
+	text-decoration: none;
 }
