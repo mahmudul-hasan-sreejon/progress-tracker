@@ -36,6 +36,7 @@
                 ?>
 
                 <h3>Project Analysis</h3>
+
                 <div id="legend_1"></div>
                 <div id="chart_1"></div>
             </div>

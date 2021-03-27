@@ -1,5 +1,4 @@
 <?php
-
 $config = array(
     "db" => array(
         "mysql" => array(
@@ -19,5 +18,4 @@ defined("SCRIPTS_PATH") or define("SCRIPTS_PATH", realpath(dirname(__FILE__) . '
 
 ini_set("error_reporting", "true");
 error_reporting(E_ALL|E_STRCT);
-
 ?>

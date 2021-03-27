@@ -1,3 +1,3 @@
-            <div id="live_data"></div>
+			<div id="live_data"></div>
 
-            <span id="result"></span>
+			<span id="result"></span>

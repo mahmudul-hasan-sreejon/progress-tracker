@@ -8,6 +8,7 @@
 
                         $query = "SELECT * FROM project";
                         $result = mysqli_query($conn, $query);
+
                         while($row = mysqli_fetch_array($result)) {
                             $project_id = $row["project_id"];
                             $query2 = "SELECT COUNT(*) FROM activity WHERE project_id = '$project_id'";
@@ -36,6 +37,7 @@
 
                         $query = "SELECT activity_name FROM activity";
                         $result = mysqli_query($conn, $query);
+
                         while($row = mysqli_fetch_array($result)) {
                             echo "
                                 <a class='list-group-item list-group-item-action' data-toggle='list' role='tab' name='".$row["activity_name"]."' onclick='update(this.name)'>".$row["activity_name"]."</a>
