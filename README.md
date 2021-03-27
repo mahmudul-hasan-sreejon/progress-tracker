@@ -2,7 +2,7 @@
 
 A web app that tracks project development cycle.
 
-![demo](https://raw.githubusercontent.com/mahmudul-hasan-sreejon/php-spreadsheet/main/static/demo.png)
+![demo](https://raw.githubusercontent.com/mahmudul-hasan-sreejon/progress-tracker/main/images/demo.png)
 
 ## Author
 
